@@ -18,5 +18,3 @@ fun main(args: Array<String>) {
 
     println("Area = %.5f".format(area))
 }
-import kotlin.math.sqrt
-import kotlin.system.exitProcess
