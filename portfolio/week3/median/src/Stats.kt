@@ -1,7 +1,7 @@
 // Task 7.7.1: statistics functions
 
 fun median(data: List<Float>): Float {
-    require(data.isNotEmpty()) { "Cannot compute the median of an empty list" }
+    require(data.size > 0) { "not enough data" }
     val sorted = data.sorted()
     val mid = sorted.size / 2
     return if (sorted.size % 2 == 0) {
