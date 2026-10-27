@@ -23,7 +23,7 @@ class ToDoList() {
         // Implement code to read To Do list from a file here
         // See data/to-do.csv for an example of the format
         Path(filename).forEachLine { line ->
-            val parts = line.split(": ", limit = 3)
+            val parts = line.split(": ")
             if (parts.size == 3) {
                 items.add(ToDoItem(LocalDate.parse(parts[0]), ItemStatus.valueOf(parts[1]), parts[2]))
             }
@@ -43,7 +43,7 @@ class ToDoList() {
     fun deleteDone(): Boolean {
         // Write code here to remove items with status of Done
         // Return true if any were removed, false if none were removed
-        return items.removeAll { it.status == ItemStatus.Done }
+        return items.removeAll(getItems(ItemStatus.Done))
     }
 
     fun getItems(status: ItemStatus? = null): List<ToDoItem> {
